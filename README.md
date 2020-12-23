@@ -9,16 +9,16 @@ A simulation for the same has been built separately for which the execution step
 (NOTE : Preferrable to have virtual environvment setup)
 
 Clone the Github repository.
-'''
+```
 https://github.com/siddhesh21/Dublin-Rainfall-Analysis-Predictions.git
 cd final_assignment/
 pip install -r requirements/requirements.txt
-'''
+```
 
 For building the models, use command as below :
-'''
+```
 pip main_exec.py --newdata [yes or no] --model [model choices]
-'''
+```
 If you want to download and import latest available dataset, parse **yes**. (Default **no**)
 Model choices:
 * **all** will train and save all the available models.
@@ -30,9 +30,9 @@ Model choices:
 
 As simulation, for trying out the models for a date present in the model, use command as below:
 (NOTE : Do check the latest date in dly532.csv)
-'''
+```
 pip predictor.py --load [model choices]
-'''
+```
 Model choices:
 * **logistic** will train and save logistic regression model.
 * **SVM** will train and save SVM model.
