@@ -1,7 +1,6 @@
-*/.DS_Store
-*/dly532.csv
-*/data_rough.xlsx
-*/.DS_Store
-*/Models/
-*/.ipynb_checkpoints
-*/__pycache__/
+.DS_Store
+dly532.csv
+data_rough.xlsx
+Models/*
+.ipynb_checkpoints
+__pycache__/*
