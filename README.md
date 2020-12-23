@@ -10,8 +10,10 @@ A simulation for the same has been built separately for which the execution step
 
 Clone the Github repository.
 ```
-https://github.com/siddhesh21/Dublin-Rainfall-Analysis-Predictions.git
+git clone https://github.com/siddhesh21/Dublin-Rainfall-Analysis-Predictions.git
+
 cd final_assignment/
+
 pip install -r requirements/requirements.txt
 ```
 
