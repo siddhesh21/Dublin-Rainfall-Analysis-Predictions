@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-DATA_DIR = "../../dly532.csv"
+DATA_DIR = "../dly532.csv"
 models_path = "../Models"
 try:
     os.mkdir(models_path)
@@ -30,7 +30,7 @@ elif args.newdata=="no":
     if os.path.isfile(DATA_DIR) == False:
             utilities.checkLatestVersion(DATA_DIR)
     else:
-        print ("Using existing dly532.csvm file.")
+        print ("Using existing dly532.csv file.")
 
 # args = parser.parse_args()
 if args.model=="all":

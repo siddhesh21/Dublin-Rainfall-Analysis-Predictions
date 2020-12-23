@@ -78,6 +78,6 @@ def neuralNetwork_model(X_train, y_train):
     model_yaml = nnmodel.to_yaml()
     with open("../Models/NN_model.yaml", "w") as yaml_file:
         yaml_file.write(model_yaml)
-    nnmodel.save_weights("./Models/NN_model.h5")
+    nnmodel.save_weights("../Models/NN_model.h5")
     print("NEURAL NETWORK MODEL SAVED IN MODELS FOLDER.")
 

@@ -20,13 +20,13 @@ def checkLatestVersion(pathname):
         os.remove(pathname)
         print("Deleted previous CSV file.")
         print("Downloading latest CSV file.")
-        os.system("wget https://cli.fusio.net/cli/climate_data/webdata/dly532.csv")
-        os.system("mv dly532.csv ../..")
+        os.system("wget --no-check-certificate https://cli.fusio.net/cli/climate_data/webdata/dly532.csv")
+        os.system("mv dly532.csv ..")
         print("Downloaded dataset.")
     else:
         print("Downloading dataset.")
-        os.system("wget https://cli.fusio.net/cli/climate_data/webdata/dly532.csv")
-        os.system("mv dly532.csv ../..")
+        os.system("wget --no-check-certificate https://cli.fusio.net/cli/climate_data/webdata/dly532.csv")
+        os.system("mv dly532.csv ..")
         print("Downloaded dataset.")
 
     with open(pathname, "r") as reading:

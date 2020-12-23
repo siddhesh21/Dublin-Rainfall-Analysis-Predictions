@@ -7,7 +7,7 @@ import support_Scripts.model_load as model_load
 warnings.filterwarnings("ignore")
 
 
-DATA_DIR = "../../dly532.csv"
+DATA_DIR = "../dly532.csv"
 parser = argparse.ArgumentParser(description="Choose Model for prediction out of the available options.")
 
 parser.add_argument("-l", "--load", metavar='',help="Model to be trained.", type = str, choices=["logistic","kNN","SVM","ridge","neural"], default = "logistic")

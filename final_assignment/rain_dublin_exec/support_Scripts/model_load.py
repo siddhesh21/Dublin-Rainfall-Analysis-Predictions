@@ -1,4 +1,5 @@
 from keras.models import model_from_yaml
+import numpy as np
 import pickle
 
 def load_logistic(input_features):
@@ -26,6 +27,7 @@ def load_ridge(input_features):
     return y_pred_ridge
 
 def load_neural(input_features):
+    input_features = np.asarray(input_features).astype('float32')
     yaml_file = open('../Models/NN_model.yaml', 'r')
     loaded_model_yaml = yaml_file.read()
     yaml_file.close()
