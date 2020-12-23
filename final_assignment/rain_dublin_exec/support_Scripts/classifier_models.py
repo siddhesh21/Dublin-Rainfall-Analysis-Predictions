@@ -13,7 +13,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import RidgeClassifier
 import pickle
 from sklearn.metrics import accuracy_score
-import pre_process
+import support_Scripts.pre_process
 
 def logistic_regression_model(X_train, y_train):
     logisticReg = LogisticRegression(penalty="l1",max_iter = 300, solver = "liblinear") #max_iter alteration for different values
@@ -22,9 +22,9 @@ def logistic_regression_model(X_train, y_train):
     logisticRegression_accuracy = metrics.accuracy_score(y_train,y_pred_logistic)
     print("LOGISTIC MODEL ACCURACY OVER TRAINING DATA : ",logisticRegression_accuracy)
     
-    filename = './Models/logistic_regression.sav'
+    filename = '../Models/logistic_regression.sav'
     pickle.dump(logisticReg, open(filename, 'wb'))
-    print("LOGISTIC REGRESSION MODEL SAVED IN MODELS FOLDER.\n\n")
+    print("LOGISTIC REGRESSION MODEL SAVED IN MODELS FOLDER.")
 
 def SVM_model(X_train, y_train):
     #Chosen model with best suited C value.
@@ -33,9 +33,9 @@ def SVM_model(X_train, y_train):
     svmModel.fit(X_train,y_train)
     print("SVM MODEL ACCURACY OVER TRAINING DATA : ",svmModel.score(X_train,y_train))
     
-    filename = './Models/SVM.sav'
+    filename = '../Models/SVM.sav'
     pickle.dump(svmModel, open(filename, 'wb'))
-    print("SVM MODEL SAVED IN MODELS FOLDER.\n\n")
+    print("SVM MODEL SAVED IN MODELS FOLDER.")
 
 def kNN_model(X_train, y_train):
     kNNmodel = KNeighborsClassifier(n_neighbors=4)
@@ -44,9 +44,9 @@ def kNN_model(X_train, y_train):
     kNN_accuracy = accuracy_score(y_train,y_pred_kNN)
     print("kNN MODEL ACCURACY OVER TRAINING DATA : ",kNN_accuracy)
     
-    filename = './Models/kNN.sav'
+    filename = '../Models/kNN.sav'
     pickle.dump(kNNmodel, open(filename, 'wb'))
-    print("kNN MODEL SAVED IN MODELS FOLDER.\n\n")
+    print("kNN MODEL SAVED IN MODELS FOLDER.")
 
 def ridgeModel(X_train, y_train):
     C_value = 10
@@ -56,9 +56,9 @@ def ridgeModel(X_train, y_train):
     ridge_accuracy = accuracy_score(y_train,y_pred_ridge)
     print("RIDGE CLASSIFIER MODEL ACCURACY OVER TRAINING DATA : ",ridge_accuracy)
     
-    filename = './Models/ridge.sav'
+    filename = '../Models/ridge.sav'
     pickle.dump(ridge_model, open(filename, 'wb'))
-    print("RIDGE MODEL SAVED IN MODELS FOLDER.\n\n")
+    print("RIDGE MODEL SAVED IN MODELS FOLDER.")
 
 def neuralNetwork_model(X_train, y_train):
     nnmodel = Sequential()
@@ -75,7 +75,9 @@ def neuralNetwork_model(X_train, y_train):
     y_pred_nn = (nnmodel.predict(X_train) > 0.5).astype("int32")
     NN_accuracy = accuracy_score(y_train,y_pred_nn)
     print("NEURAL NETWORK MODEL ACCURACY OVER TRAINING DATA : ",NN_accuracy)
-    
+    model_yaml = nnmodel.to_yaml()
+    with open("../Models/NN_model.yaml", "w") as yaml_file:
+        yaml_file.write(model_yaml)
     nnmodel.save_weights("./Models/NN_model.h5")
     print("NEURAL NETWORK MODEL SAVED IN MODELS FOLDER.")
 
