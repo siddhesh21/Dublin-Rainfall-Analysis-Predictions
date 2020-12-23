@@ -12,7 +12,7 @@ Clone the Github repository.
 ```
 git clone https://github.com/siddhesh21/Dublin-Rainfall-Analysis-Predictions.git
 
-cd final_assignment/
+cd Dublin-Rainfall-Analysis-Predictions/final_assignment/
 
 pip install -r requirements/requirements.txt
 ```
