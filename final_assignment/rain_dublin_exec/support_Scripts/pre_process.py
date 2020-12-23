@@ -63,11 +63,29 @@ def preprocess_data(filename, date=False):
         read_data = utilities.Min_Max_Normalization(read_data, date=True)
        
         read_data = read_data.drop(columns=["MIN_AIR_TEMP", "MAX_AIR_TEMP", "POTENTIAL_EVAPOTRANSPIRATION"])
-        input_date = input("Please provide date for prediction (YYYY-MM-DD) :")
+        input_date = input('Please provide date for prediction (YYYY-MM-DD) or type "tomorrow" for prediction : ')
         row_frame = (read_data.loc[read_data['DATE'] == input_date]).copy()
         row_vals = row_frame.values
 
-        if row_vals.shape[0] == 0:
+        if input_date == "tomorrow":
+            final_np_arr = []
+            AVG_MEAN_WINDSPEED_KNOT = (np.array(read_data["MEAN_WINDSPEED_KNOT"])).mean()
+            final_np_arr.append(AVG_MEAN_WINDSPEED_KNOT)
+            AVG_HIGHEST_10MIN_WINDSPEED = (np.array(read_data["HIGHEST_10MIN_WINDSPEED"])).mean()
+            final_np_arr.append(AVG_HIGHEST_10MIN_WINDSPEED)
+            AVG_WIND_DIR_DEGREE = (np.array(read_data["WIND_DIR_DEGREE"])).mean()
+            final_np_arr.append(AVG_WIND_DIR_DEGREE)
+            AVG_HIGHEST_GUST = (np.array(read_data["HIGHEST_GUST"])).mean()
+            final_np_arr.append(AVG_HIGHEST_GUST)
+            AVG_SUN_DURATION = (np.array(read_data["SUN_DURATION"])).mean()
+            final_np_arr.append(AVG_SUN_DURATION)
+            AVG_EVAPORATION = (np.array(read_data["EVAPORATION"])).mean()
+            final_np_arr.append(AVG_EVAPORATION)
+
+            resultant = np.array(final_np_arr).reshape(1,-1)
+            return(resultant,0)
+
+        elif row_vals.shape[0] == 0:
               print("Please choose correct date and format.")
               resultant,tmp = preprocess_data(filename,date=True)
               return(resultant,0)

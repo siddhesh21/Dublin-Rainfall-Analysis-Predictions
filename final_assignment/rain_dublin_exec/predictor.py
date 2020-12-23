@@ -33,6 +33,6 @@ elif args.load=="neural":
     resultant = model_load.load_neural(input_features)
 
 if resultant == 1:
-    print("According to prediction, it will rain on the specified date.")
+    print("\nAccording to prediction, it will rain on the specified date.")
 else:
-    print("According to prediction, it will NOT rain on the specified date.")
+    print("\nAccording to prediction, it will NOT rain on the specified date.")

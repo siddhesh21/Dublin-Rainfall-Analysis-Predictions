@@ -42,5 +42,5 @@ Model choices:
 * **ridge** will train and save ridge model.
 * **neural** will train and save neural network model. 
 
-Enter the date in the input in format (YYYY-MM-DD).
+Enter the date in the input in format (YYYY-MM-DD) or type **tomorrow** for next day simulation.
 The prediction for that paricular day will be displayed.
