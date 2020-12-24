@@ -2,6 +2,8 @@ from keras.models import model_from_yaml
 import numpy as np
 import pickle
 
+# Loading functions for specific model according to the call.
+
 def load_logistic(input_features):
     loaded_model = pickle.load(open("../Models/logistic_regression.sav", 'rb'))
     print("\nLOGISTIC REGRESSION MODEL LOADED.\n")

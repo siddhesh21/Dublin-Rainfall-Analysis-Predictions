@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-# Min-max normalization
+# Min-max normalization.
 def Min_Max_Normalization(dataframe,date=False):
     if date == False:
         dataframe=(dataframe-dataframe.min())/(dataframe.max()-dataframe.min())
@@ -15,6 +15,7 @@ def Min_Max_Normalization(dataframe,date=False):
         dataframe = pd.concat([dates,norm_frame],axis=1,sort=False)
         return dataframe
 
+# The function below downloads the latest file from the internet and replaces the previous one.
 def checkLatestVersion(pathname):
     if(os.path.exists(pathname)):
         os.remove(pathname)

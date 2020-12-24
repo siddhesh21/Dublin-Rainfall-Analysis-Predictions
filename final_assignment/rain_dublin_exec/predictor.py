@@ -6,8 +6,9 @@ import support_Scripts.model_load as model_load
 
 warnings.filterwarnings("ignore")
 
-
 DATA_DIR = "../dly532.csv"
+
+# Parsing the input through command line.
 parser = argparse.ArgumentParser(description="Choose Model for prediction out of the available options.")
 
 parser.add_argument("-l", "--load", metavar='',help="Model to be trained.", type = str, choices=["logistic","kNN","SVM","ridge","neural"], default = "logistic")
@@ -17,6 +18,7 @@ args = parser.parse_args()
 resultant = 0
 input_features,y = pre_process.preprocess_data(DATA_DIR, date=True)
 
+# Available options for parsing.
 if args.load=="logistic":
     resultant = model_load.load_logistic(input_features)
 
@@ -32,6 +34,7 @@ elif args.load=="ridge":
 elif args.load=="neural":
     resultant = model_load.load_neural(input_features)
 
+# Prediction whether it is going to rain or not.
 if resultant == 1:
     print("\nAccording to prediction, it will rain on the specified date.")
 else:

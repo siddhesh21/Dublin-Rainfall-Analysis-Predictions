@@ -7,7 +7,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-
+# Building the Models directory.
 DATA_DIR = "../dly532.csv"
 models_path = "../Models"
 try:
@@ -16,7 +16,8 @@ except OSError:
     print ("Directory %s already present." % models_path)
 else:
     print ("Directory %s created." % models_path)
-    
+
+# Parsing the input through command line.
 parser = argparse.ArgumentParser(description="Fetch latest data and options for train models.")
 
 parser.add_argument("-n","--newdata", help="Check for latest data online", type = str, metavar='',choices=["yes","no"],default = "no")
@@ -24,6 +25,7 @@ parser.add_argument("-m", "--model", metavar='',help="Model to be trained.", typ
 
 args = parser.parse_args()
 
+# Available options for parsing.
 if args.newdata=="yes":
     utilities.checkLatestVersion(DATA_DIR)
 elif args.newdata=="no":
@@ -32,7 +34,6 @@ elif args.newdata=="no":
     else:
         print ("Using existing dly532.csv file.")
 
-# args = parser.parse_args()
 if args.model=="all":
     print("\n\nTRAINING ALL AVAILABLE MODELS.\n")
     X_train, y_train = pre_process.preprocess_data(DATA_DIR)
