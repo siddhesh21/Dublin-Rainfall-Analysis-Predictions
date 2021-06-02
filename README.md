@@ -1,4 +1,4 @@
-# Machine learning Michaelmas submission
+# Dublin Rainfall Prediction analysis
 
 **Rain_Prediction_Dublin.ipynb** is written to analysis and build the most appropriate models for the chosen dataset using feature selection based on box plots and p-values.
 
